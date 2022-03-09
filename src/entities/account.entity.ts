@@ -10,6 +10,7 @@ import {
 } from 'typeorm';
 import { UserEntity } from './user.entity';
 import { OperationEntity } from './operation.entity';
+import { CategoryEntity } from "./category.entity";
 
 @Entity('accounts')
 export class AccountEntity {
@@ -20,6 +21,8 @@ export class AccountEntity {
   @OneToOne(() => UserEntity)
   @JoinColumn()
   user: UserEntity;
+  @OneToMany(() => CategoryEntity, (category) => category.account)
+  categories: CategoryEntity[];
   @OneToMany(() => OperationEntity, (operation) => operation.account)
   operations: OperationEntity[];
   @CreateDateColumn({ type: 'timestamp' })
