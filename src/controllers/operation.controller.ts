@@ -1,13 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { OperationService } from '../services/operation.service';
-import { OperationEntity } from "../entities/operation.entity";
-import { CategoryEntity } from "../entities/category.entity";
+import { CreateOperationDto } from '../dto/operation/create-operation.dto';
 
-@Controller('operations')
+@Controller('operation')
 export class OperationController {
   constructor(private readonly operationService: OperationService) {}
-  @Get()
-  getOperations(): any {
-    return this.operationService.getOperations();
+
+  @Post('add')
+  add(@Body() operation: CreateOperationDto): any {
+    operation.accountId = 1;
+    console.log(operation);
+    this.operationService.create(operation);
   }
 }

@@ -1,5 +1,6 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { OperationEntity } from "./operation.entity";
+import { AccountEntity } from "./account.entity";
 
 @Entity('categories')
 export class CategoryEntity {
@@ -13,4 +14,6 @@ export class CategoryEntity {
   logo: string;
   @OneToMany(() => OperationEntity, (operation) => operation.category)
   operations: OperationEntity[];
+  @ManyToOne(() => AccountEntity, (account) => account.categories)
+  account: AccountEntity;
 }
