@@ -1,6 +1,12 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { OperationEntity } from "./operation.entity";
-import { AccountEntity } from "./account.entity";
+import {
+  Column,
+  Entity,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { OperationEntity } from './operation.entity';
+import { AccountEntity } from './account.entity';
 
 @Entity('categories')
 export class CategoryEntity {
