@@ -9,7 +9,6 @@ export class OperationController {
   @Post('add')
   add(@Body() operation: CreateOperationDto): any {
     operation.accountId = 1;
-    console.log(operation);
     this.operationService.create(operation);
   }
 }

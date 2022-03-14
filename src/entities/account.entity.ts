@@ -10,7 +10,7 @@ import {
 } from 'typeorm';
 import { UserEntity } from './user.entity';
 import { OperationEntity } from './operation.entity';
-import { CategoryEntity } from "./category.entity";
+import { CategoryEntity } from './category.entity';
 
 @Entity('accounts')
 export class AccountEntity {
